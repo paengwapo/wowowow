@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Luck sa Retdem!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe6f2;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: rgba(255, 230, 242, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            border: 3px solid #ff66b3;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1 {
+            color: #ff3399;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .luck-button {
+            background-color: #ff66b3;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .luck-button:hover {
+            background-color: #ff3399;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .luck-button:active {
+            transform: translateY(1px);
+        }
+        
+        .luck-button::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed #ff99cc;
+            border-radius: 50px;
+            animation: rotate 10s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .luck-button:hover::before {
+            opacity: 1;
+        }
+        
+        #runaway-button {
+            transition: all 0.1s;
+            position: relative;
+        }
+        
+        .nursing-stickers {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.7;
+            animation: float 5s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .message {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #ff3399;
+            font-weight: bold;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gif-container {
+            margin: 20px auto;
+            display: none;
+            max-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stethoscope {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            transform: rotate(-30deg);
+            opacity: 0.7;
+        }
+        
+        .syringe {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 80px;
+            transform: rotate(20deg);
+            opacity: 0.7;
+        }
+        
+        .heart-rate {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            width: 100px;
+            opacity: 0.7;
+        }
+        
+        .pill {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            opacity: 0.7;
+        }
+        
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/2785/2785433.png" class="stethoscope nursing-stickers">
+        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050159.png" class="syringe nursing-stickers">
+        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050119.png" class="heart-rate nursing-stickers">
+        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050141.png" class="pill nursing-stickers">
+        
+        <h1>Good luck sa retdem shrekina! 💖</h1>
+        
+        <div class="button-container">
+            <button id="kakayanin-button" class="luck-button">KAKAYANIN</button>
+            <button id="runaway-button" class="luck-button">nde kc isa akong panget at mahinang nilalang na walang alam gaya ni nikol</button>
+        </div>
+        
+        <div class="message" id="message"></div>
+        
+        <div class="gif-container" id="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHZxY3Z5eW5qM2x3dWJ4eGJ4bG5xZ3JtZ2V0b2RjZ3R5dGJmMnR4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT5LMHxhOfscxPfIfm/giphy.gif" alt="Sweet Hearts GIF" style="width: 100%;">
+        </div>
+        
+        <div class="hearts-container" id="hearts-container"></div>
+    </div>
+
+    <script>
+        const kakayaninButton = document.getElementById('kakayanin-button');
+        const runawayButton = document.getElementById('runaway-button');
+        const message = document.getElementById('message');
+        const gifContainer = document.getElementById('gif-container');
+        const heartsContainer = document.getElementById('hearts-container');
+        
+        // Make the runaway button move around when hovered
+        runawayButton.addEventListener('mouseover', function() {
+            // Random position within container
+            const containerWidth = document.querySelector('.container').offsetWidth;
+            const containerHeight = document.querySelector('.container').offsetHeight;
+            
+            const buttonWidth = runawayButton.offsetWidth;
+            const buttonHeight = runawayButton.offsetHeight;
+            
+            const maxX = containerWidth - buttonWidth - 40;
+            const maxY = containerHeight - buttonHeight - 40;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            runawayButton.style.position = 'absolute';
+            runawayButton.style.left = randomX + 'px';
+            runawayButton.style.top = randomY + 'px';
+        });
+        
+        // Make the runaway button unclickable
+        runawayButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+        
+        // Kakayanin button functionality
+        kakayaninButton.addEventListener('click', function() {
+            message.innerHTML = "Putangina mo you can do this motherfucker! 💉💖";
+            gifContainer.style.display = 'block';
+            
+            // Add some fun effects
+            document.querySelector('.container').style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                document.querySelector('.container').style.animation = '';
+            }, 500);
+            
+            // Create floating hearts
+            for (let i = 0; i < 30; i++) {
+                createFloatingHeart();
+            }
+        });
+        
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = ['❤️', '💖', '💗', '💓', '💘', '💝', '💞', '💟'][Math.floor(Math.random() * 8)];
+            heart.style.position = 'absolute';
+            heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = '100%';
+            heart.style.opacity = Math.random() * 0.5 + 0.5;
+            heart.style.animation = `float-up ${Math.random() * 3 + 2}s linear forwards`;
+            heart.style.transform = `rotate(${Math.random() * 360}deg)`;
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        // Add keyframes dynamically for floating hearts
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes float-up {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0.7;
+                }
+                100% {
+                    transform: translateY(-400px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
